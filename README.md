@@ -2,21 +2,21 @@
 
 ## Quick Installation
 
-Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run the following to set up first Odoo instance @ `localhost:10017` (default master password: `minhng.info`):
+Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run the following to set up first Odoo instance @ `localhost:10017` (default master password: `Hussein@2030`):
 
 ``` bash
-curl -s https://raw.githubusercontent.com/mmhussein29/odoo-18-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-one 10017 20017
+curl -s https://raw.githubusercontent.com/mmhussein29/odoo-18-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-18 10018 20018
 ```
-and/or run the following to set up another Odoo instance @ `localhost:11017` (default master password: `minhng.info`):
+and/or run the following to set up another Odoo instance @ `localhost:11017` (default master password: `hussein@2030`):
 
 ``` bash
-curl -s https://raw.githubusercontent.com/mmhussein29/odoo-18-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-two 11017 21017
+curl -s https://raw.githubusercontent.com/mmhussein29/odoo-18-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-018 11018 21018
 ```
 
 Some arguments:
-* First argument (**odoo-one**): Odoo deploy folder
-* Second argument (**10017**): Odoo port
-* Third argument (**20017**): live chat port
+* First argument (**odoo-18**): Odoo deploy folder
+* Second argument (**10018**): Odoo port
+* Third argument (**20018**): live chat port
 
 If `curl` is not found, install it:
 
@@ -42,11 +42,11 @@ $ sudo chmod -R 777 etc
 $ sudo chmod -R 777 postgresql
 ```
 
-- If you want to start the server with a different port, change **10017** to another value in **docker-compose.yml** inside the parent dir:
+- If you want to start the server with a different port, change **10018** to another value in **docker-compose.yml** inside the parent dir:
 
 ```
 ports:
- - "10017:8069"
+ - "10018:8069"
 ```
 
 - To run Odoo container in detached mode (be able to close terminal without stopping Odoo):
@@ -103,7 +103,7 @@ docker-compose down
 
 ## Live chat
 
-In [docker-compose.yml#L21](docker-compose.yml#L21), we exposed port **20017** for live-chat on host.
+In [docker-compose.yml#L21](docker-compose.yml#L21), we exposed port **20018** for live-chat on host.
 
 Configuring **nginx** to activate live chat feature (in production):
 
@@ -112,7 +112,7 @@ Configuring **nginx** to activate live chat feature (in production):
 server {
     #...
     location /longpolling/ {
-        proxy_pass http://0.0.0.0:20017/longpolling/;
+        proxy_pass http://0.0.0.0:20018/longpolling/;
     }
     #...
 }
@@ -121,7 +121,7 @@ server {
 
 ## docker-compose.yml
 
-* odoo:17
+* odoo:18
 * postgres:16
 
 ## Odoo 17.0 screenshots after successful installation.
