@@ -1,22 +1,22 @@
-# Installing Odoo 18.0 with one command (Supports multiple Odoo instances on one server).
+# Installing Odoo 19.0 with one command (Supports multiple Odoo instances on one server).
 
 ## Quick Installation
 
-Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run the following to set up first Odoo instance @ `localhost:10017` (default master password: `Hussein@2030`):
+Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run the following to set up first Odoo instance @ `localhost:10019` (default master password: `Younnis@2030`):
 
 ``` bash
-curl -s https://raw.githubusercontent.com/mmhussein29/odoo-18-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-18 10018 20018
+curl -s https://raw.githubusercontent.com/mmhussein29/odoo-19-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-19 10019 20019
 ```
-and/or run the following to set up another Odoo instance @ `localhost:11017` (default master password: `hussein@2030`):
+and/or run the following to set up another Odoo instance @ `localhost:11019` (default master password: `Younnis@2030`):
 
 ``` bash
-curl -s https://raw.githubusercontent.com/mmhussein29/odoo-18-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-018 11018 21018
+curl -s https://raw.githubusercontent.com/mmhussein29/odoo-19-docker-compose/refs/heads/main/run.sh | sudo bash -s odoo-019 11019 21019
 ```
 
 Some arguments:
-* First argument (**odoo-18**): Odoo deploy folder
-* Second argument (**10018**): Odoo port
-* Third argument (**20018**): live chat port
+* First argument (**odoo-19**): Odoo deploy folder
+* Second argument (**10019**): Odoo port
+* Third argument (**20019**): live chat port
 
 If `curl` is not found, install it:
 
@@ -32,7 +32,7 @@ Start the container:
 ``` sh
 docker-compose up
 ```
-Then open `localhost:10017` to access Odoo 18.
+Then open `localhost:10019` to access Odoo 19.
 
 - **If you get any permission issues**, change the folder permission to make sure that the container is able to access the directory:
 
@@ -42,11 +42,11 @@ $ sudo chmod -R 777 etc
 $ sudo chmod -R 777 postgresql
 ```
 
-- If you want to start the server with a different port, change **10018** to another value in **docker-compose.yml** inside the parent dir:
+- If you want to start the server with a different port, change **10019** to another value in **docker-compose.yml** inside the parent dir:
 
 ```
 ports:
- - "10018:8069"
+ - "10019:8069"
 ```
 
 - To run Odoo container in detached mode (be able to close terminal without stopping Odoo):
@@ -79,7 +79,7 @@ The **addons/** folder contains custom addons. Just put your custom addons if yo
 
 * To change Odoo configuration, edit file: **etc/odoo.conf**.
 * Log file: **etc/odoo-server.log**
-* Default database password (**admin_passwd**) is `hussein@1234`, please change it @ [etc/odoo.conf#L60](/etc/odoo.conf#L60)
+* Default database password (**admin_passwd**) is `Younnis@2030`, please change it @ [etc/odoo.conf#L60](/etc/odoo.conf#L60)
 
 ## Odoo container management
 
@@ -112,7 +112,7 @@ Configuring **nginx** to activate live chat feature (in production):
 server {
     #...
     location /longpolling/ {
-        proxy_pass http://0.0.0.0:20018/longpolling/;
+        proxy_pass http://0.0.0.0:20019/longpolling/;
     }
     #...
 }
@@ -121,7 +121,7 @@ server {
 
 ## docker-compose.yml
 
-* odoo:18
+* odoo:19
 * postgres:16
 
 ## Odoo 17.0 screenshots after successful installation.
